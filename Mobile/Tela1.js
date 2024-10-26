@@ -4,31 +4,56 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 const Tela1 = ({ navigation }) => {
   const handlePress = (option) => {
     if (option === 'Dashboard') {
-      navigation.navigate('Dashboard'); // Navega para a tela Dashboard
-    } else if (option === 'Questões') {
-      navigation.navigate('Questoes'); // Navega para a tela Questoes
+      navigation.navigate('Dashboard');
+    } else if (option === 'Formulário') {
+      navigation.navigate('Legenda');
+    } else if (option === 'Atividades') {
+      navigation.navigate('Desabafo');
+    } else if (option === 'Social') {
+      navigation.navigate('Comunidade');
+    } else if (option === 'Benefícios') {
+      navigation.navigate('Score');
+    } else if (option === 'Sair') {
+      navigation.navigate('LoginScreen');
     }
-    // Adicione mais opções aqui, se necessário
   };
 
   return (
     <View style={styles.container}>
       <Image 
-        source={require('./assets/logo.jpg')} 
+        source={require('./assets/logo.png')} 
         style={styles.logo} 
         resizeMode="contain"
       />
 
-      <Text style={styles.title}>HAPPYPASS</Text>
+      <Text style={styles.title}> Menu Principal </Text>
 
       <View style={styles.grid}>
-        {['Dashboard', 'Score', 'Questões', 'Comunidade', 'Desabafo', 'Parcerias'].map((option, index) => (
+        {['Dashboard', 'Formulário', 'Atividades', 'Social', 'Benefícios', 'Sair'].map((option, index) => (
           <TouchableOpacity
             key={index}
             style={styles.option}
             onPress={() => handlePress(option)}
           >
             <Text style={styles.optionText}>{option}</Text>
+            {option === 'Dashboard' && (
+              <Image source={require('./assets/dashboard.png')} style={styles.menuIcons} resizeMode="contain" />
+            )}
+            {option === 'Formulário' && (
+              <Image source={require('./assets/formulario.png')} style={styles.menuIcons} resizeMode="contain" />
+            )}
+            {option === 'Atividades' && (
+              <Image source={require('./assets/atividades.png')} style={styles.menuIcons} resizeMode="contain" />
+            )}
+            {option === 'Social' && (
+              <Image source={require('./assets/amizade.png')} style={styles.menuIcons} resizeMode="contain" />
+            )}
+            {option === 'Benefícios' && (
+              <Image source={require('./assets/beneficios.png')} style={styles.menuIcons} resizeMode="contain" />
+            )}
+            {option === 'Sair' && (
+              <Image source={require('./assets/exit.png')} style={styles.menuIcons} resizeMode="contain" />
+            )}
           </TouchableOpacity>
         ))}
       </View>
@@ -37,22 +62,27 @@ const Tela1 = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  menuIcons: {
+    width: 50,
+    height: 50,
+    marginTop: 5,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#39BFBF',
+    backgroundColor: '#cdfdd3',
     alignItems: 'center',
     justifyContent: 'flex-start',
     padding: 20,
   },
   logo: {
-    width: '100%',
-    height: 100,
-    marginBottom: 10,
+    width: 180,
+    height: 180,
+    marginTop: 50,
   },
   title: {
     fontSize: 32,
-    color: '#FFFFFF',
-    marginBottom: 10,
+    color: '#000000',
+    marginBottom: 20,
     fontWeight: 'bold',
   },
   grid: {
@@ -62,12 +92,12 @@ const styles = StyleSheet.create({
   },
   option: {
     width: '48%',
-    height: 100,
-    backgroundColor: '#80d5bf',
+    height: 120,
+    backgroundColor: '#FFFFFF',
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 10,
+    marginBottom: 40,
   },
   optionText: {
     color: '#555555',

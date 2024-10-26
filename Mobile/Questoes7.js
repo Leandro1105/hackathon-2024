@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-const Questoes7 = ({ navigation }) => { // Recebe a prop navigation
-  const [responses7, setresponses7] = useState({}); // Estado para armazenar as respostas
+const Questoes7 = ({ navigation, route }) => {
+  const { responses1, responses2, responses3, responses4, responses5, responses6 } = route.params; 
+  const [responses7, setresponses7] = useState({});
 
   const handleResponse = (questionIndex, response) => {
     console.log(`Question ${questionIndex} response: ${response}`);
@@ -14,16 +15,16 @@ const Questoes7 = ({ navigation }) => { // Recebe a prop navigation
 
   // Perguntas específicas
   const questions = [
-    "25.Sinto que tenho um nível elevado de energia",
-    "26.Eu geralmente, exerço uma boa influência sobre os acontecimentos",
-    "27.Não costumo me divertir com outras pessoas",
-    "28.Não me sinto, particularmente, uma pessoa saudável"
+    "25. Sinto que tenho um nível elevado de energia",
+    "26. Eu geralmente, exerço uma boa influência sobre os acontecimentos",
+    "27. Não costumo me divertir com outras pessoas",
+    "28. Não me sinto, particularmente, uma pessoa saudável"
   ];
 
   return (
     <View style={styles.container}>
       <Image 
-        source={require('./assets/logo.jpg')} 
+        source={require('./assets/logo.png')} 
         style={styles.logo} 
         resizeMode="contain"
       />
@@ -38,8 +39,12 @@ const Questoes7 = ({ navigation }) => { // Recebe a prop navigation
             {Array.from({ length: 6 }, (_, responseIndex) => (
               <TouchableOpacity
                 key={responseIndex}
-                style={[styles.responseButton, responseIndex < 3 && styles.lightRed]} // Aplica a cor vermelho claro para 1 a 3
-                onPress={() => handleResponse(index + 5, responseIndex + 1)} // Indica a questão correta
+                style={[
+                  styles.responseButton,
+                  responseIndex < 3 && styles.lightRed, // Aplica a cor vermelho claro para 1 a 3
+                  responses7[index + 25] === responseIndex + 1 && styles.selectedButton // Adiciona estilo se selecionado
+                ]}
+                onPress={() => handleResponse(index + 25, responseIndex + 1)} // Indica a questão correta
               >
                 <Text style={styles.responseText}>{responseIndex + 1}</Text>
               </TouchableOpacity>
@@ -51,9 +56,9 @@ const Questoes7 = ({ navigation }) => { // Recebe a prop navigation
       <View style={styles.buttonContainer}>
         <TouchableOpacity 
           style={styles.backButton} 
-          onPress={() => navigation.navigate('Questoes6')} // Navega para Questoes.js
+          onPress={() => navigation.navigate('Questoes6')} // Navega para Questoes6.js
         >
-          <Text style={styles.buttonText}>Voltar</Text>
+          <Text style={[styles.buttonText, { fontWeight: 'bold' }]}>Voltar</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.nextButton} 
@@ -72,24 +77,24 @@ const Questoes7 = ({ navigation }) => { // Recebe a prop navigation
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#39BFBF',
+    backgroundColor: '#cdfdd3',
     alignItems: 'center',
     justifyContent: 'flex-start',
     padding: 20,
   },
   logo: {
-    width: '100%',
-    height: 100,
-    marginBottom: 20,
+    width: '100%', // Aumentado em 40% do tamanho original (100 + 40)
+    height: 100, // Aumentado em 40% do tamanho original (100 + 40)
+    marginTop: 50,
   },
   title: {
     fontSize: 32,
-    color: '#FFFFFF',
+    color: '#000000',
     marginBottom: 20,
     fontWeight: 'bold',
   },
   questionContainer: {
-    backgroundColor: '#80d5bf',
+    backgroundColor: '#f4f7fe',
     borderRadius: 8,
     padding: 15,
     marginBottom: 20,
@@ -113,6 +118,9 @@ const styles = StyleSheet.create({
   lightRed: {
     backgroundColor: '#FFCCCB', // Cor vermelho claro para alternativas 1 a 3
   },
+  selectedButton: {
+    backgroundColor: '#FFA500', // Cor para o botão selecionado
+  },
   responseText: {
     color: '#FFFFFF',
     fontSize: 18,
@@ -125,7 +133,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   backButton: {
-    backgroundColor: '#00885E',
+    backgroundColor: '#FF5733',
     borderRadius: 8,
     padding: 15,
     width: '48%', // Ajusta a largura do botão de voltar

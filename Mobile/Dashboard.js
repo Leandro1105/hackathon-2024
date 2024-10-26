@@ -1,92 +1,124 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image } from 'react-native';
+import { LineChart } from 'react-native-chart-kit';
 
-const Dashboard = () => {
-  const handleBackPress = () => {
-    Alert.alert('Ação', 'Botão de voltar pressionado!'); // Lógica para voltar à tela anterior
-    // Aqui você pode implementar a lógica de navegação se necessário
-  };
+const Dashboard = ({ navigation }) => { // Adicione o parâmetro navigation
+  // Valores fictícios para as pontuações
+  const scores = [1, 2, 2.9]; // Pontuações para 3 questionários
+  const maxScore = 6; // Pontuação máxima
 
-  const handlePress = () => {
-    Alert.alert('Ação', 'Botão clicado!'); // Exemplo de ação ao pressionar um botão
+  // Configuração do gráfico
+  const data = {
+    labels: ['Ago', 'Set', 'Out'],
+    datasets: [
+      {
+        data: scores,
+        color: (opacity = 1) => `rgba(255, 87, 51, ${opacity})`, // Cor da linha
+        strokeWidth: 2, // largura da linha
+      },
+    ],
   };
 
   return (
     <View style={styles.container}>
-      {/* Botão de voltar */}
-      <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
-        <Image source={require('./assets/back.png')} style={styles.backImage} />
-      </TouchableOpacity>
-
+      <Image 
+        source={require('./assets/logo.png')} 
+        style={styles.logo} 
+        resizeMode="contain"
+      />
       <Text style={styles.title}>Dashboard</Text>
+      <Text style={styles.subtitle}>Gráfico de Pontuações</Text>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Resumo de Atividades</Text>
-        <Text style={styles.cardContent}>Aqui você pode ver um resumo das suas atividades diárias.</Text>
+      <LineChart
+        data={data}
+        width={Dimensions.get('window').width - 40} // Largura do gráfico
+        height={220} // Altura do gráfico
+        yAxisLabel=""
+        yAxisSuffix=""
+        yAxisInterval={1} // Intervalo do eixo Y
+        chartConfig={{
+          backgroundColor: '#cdfdd3',
+          backgroundGradientFrom: '#000000',
+          backgroundGradientTo: '#cdfdd3',
+          decimalPlaces: 0, // Quantidade de casas decimais
+          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // Cor dos textos
+          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // Cor do rótulo
+          style: {
+            borderRadius: 16,
+          },
+          propsForDots: {
+            r: "6", // raio dos pontos
+            strokeWidth: "2",
+            stroke: "#fff", // cor da borda dos pontos
+          },
+        }}
+        bezier // curva da linha
+        style={{
+          marginVertical: 8,
+          borderRadius: 16,
+        }}
+      />
+
+      {/* Legenda Colorida */}
+      <View style={styles.legend}>
+        <Text style={styles.legendText}>1-2: Não Feliz</Text>
+        <Text style={styles.legendText}>3-5: Moderadamente Feliz</Text>
+        <Text style={styles.legendText}>5-6: Muito Feliz</Text>
       </View>
-
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Estatísticas</Text>
-        <Text style={styles.cardContent}>Acompanhe suas estatísticas de desempenho aqui.</Text>
-      </View>
-
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
-        <Text style={styles.buttonText}>Ação 1</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
-        <Text style={styles.buttonText}>Ação 2</Text>
+      <TouchableOpacity 
+        style={styles.backButton} 
+        onPress={() => navigation.navigate('Tela1')}
+      >
+        <Text style={[styles.buttonText, { fontWeight: 'bold' }]}>Voltar</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  logo: {
+    width: 180, // Aumentado em 40% do tamanho original (100 + 40)
+    height: 180, // Aumentado em 40% do tamanho original (100 + 40)
+    marginTop: 50,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#f96324',
+    backgroundColor: '#cdfdd3',
     padding: 20,
-  },
-  backButton: {
-    position: 'absolute',
-    top: 40, // Distância do topo
-    left: 20, // Distância da esquerda
-    zIndex: 1, // Garante que o botão fique acima de outros componentes
-  },
-  backImage: {
-    width: 30, // Ajuste conforme necessário
-    height: 30, // Ajuste conforme necessário
+    alignItems: 'center',
   },
   title: {
     fontSize: 32,
-    color: '#FFFFFF',
-    marginBottom: 20,
+    color: '#000000',
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  card: {
-    backgroundColor: '#ffdfa8',
-    borderRadius: 8,
-    padding: 15,
     marginBottom: 20,
   },
-  cardTitle: {
-    fontSize: 24,
+  subtitle: {
+    fontSize: 22,
+    color: '#000000',
+    marginBottom: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
   },
-  cardContent: {
-    fontSize: 16,
+  legend: {
+    marginTop: 20,
+    width: '100%',
   },
-  button: {
-    backgroundColor: '#f29f84',
+  legendText: {
+    color: '#000000',
+    fontSize: 18,
+    marginBottom: 5,
+    fontWeight: 'bold',
+  },
+  backButton: {
+    backgroundColor: '#FF5733',
     borderRadius: 8,
     padding: 15,
+    marginTop: 120,
+    width: '100%',
     alignItems: 'center',
-    marginBottom: 10,
   },
   buttonText: {
-    color: '#555555',
+    color: '#FFFFFF',
     fontSize: 18,
     fontWeight: 'bold',
   },

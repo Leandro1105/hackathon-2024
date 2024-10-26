@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const Questoes = ({ navigation }) => {
+  const [responses1, setresponses1] = useState({}); // Estado para armazenar as respostas
+
+  const handleResponse = (questionIndex, response) => {
+    console.log(`Question ${questionIndex} response: ${response}`);
+    setresponses1(prevresponses1 => ({
+      ...prevresponses1,
+      [questionIndex]: response // Armazena a resposta no estado
+    }));
+  };
+
   // Perguntas específicas
   const questions = [
     "1. Eu não me sinto particularmente satisfeito com a maneira como sou.",
@@ -10,22 +20,10 @@ const Questoes = ({ navigation }) => {
     "4. Tenho sentimentos muito afetivos em relação a quase todos."
   ];
 
-  // Estado para armazenar as respostas
-  const [responses1, setResponses1] = useState(Array(questions.length).fill(null)); // Inicializa com null
-
-  const handleResponse = (questionIndex, response) => {
-    console.log(`Question ${questionIndex} response: ${response}`);
-
-    // Atualiza a resposta para a pergunta correspondente
-    const updatedResponses1 = [...responses1];
-    updatedResponses1[questionIndex] = response;
-    setResponses1(updatedResponses1);
-  };
-
   return (
     <View style={styles.container}>
       <Image 
-        source={require('./assets/logo.jpg')} 
+        source={require('./assets/logo.png')} 
         style={styles.logo} 
         resizeMode="contain"
       />
@@ -35,7 +33,7 @@ const Questoes = ({ navigation }) => {
       {/* Questões */}
       {questions.map((question, index) => (
         <View key={index} style={styles.questionContainer}>
-          <Text style={styles.questionText}>Questão {index + 1}: {question}</Text>
+          <Text style={styles.questionText}>{question}</Text>
           <View style={styles.responsesContainer}>
             {Array.from({ length: 6 }, (_, responseIndex) => (
               <TouchableOpacity
@@ -43,9 +41,9 @@ const Questoes = ({ navigation }) => {
                 style={[
                   styles.responseButton,
                   responseIndex < 3 && styles.lightRed, // Aplica a cor vermelho claro para 1 a 3
-                  responses1[index] === responseIndex + 1 && styles.selectedButton // Adiciona estilo se selecionado
+                  responses1[index + 5] === responseIndex + 1 && styles.selectedButton // Adiciona estilo se selecionado
                 ]}
-                onPress={() => handleResponse(index, responseIndex + 1)} // Atualiza a resposta
+                onPress={() => handleResponse(index + 5, responseIndex + 1)} // Indica a questão correta
               >
                 <Text style={styles.responseText}>{responseIndex + 1}</Text>
               </TouchableOpacity>
@@ -54,15 +52,23 @@ const Questoes = ({ navigation }) => {
         </View>
       ))}
 
-      <TouchableOpacity 
-        style={styles.submitButton}
-        onPress={() => {
-          console.log('Respostas finais:', responses1); // Exibe as respostas no console
-          navigation.navigate('Questoes2'); // Navega para Questoes2
-        }}
-      >
-        <Text style={styles.submitButtonText}>Próximas</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity 
+          style={styles.backButton} 
+          onPress={() => navigation.navigate('Legenda')} // Navega para Questoes.js
+        >
+          <Text style={[styles.buttonText, { fontWeight: 'bold' }]}>Voltar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.nextButton} 
+          onPress={() => {
+            // Passa as respostas para a próxima tela
+            navigation.navigate('Questoes2', { responses1 });
+          }}
+        >
+          <Text style={styles.buttonText}>Próximas</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -70,24 +76,24 @@ const Questoes = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#39BFBF',
+    backgroundColor: '#cdfdd3',
     alignItems: 'center',
     justifyContent: 'flex-start',
     padding: 20,
   },
   logo: {
-    width: '100%',
-    height: 100,
-    marginBottom: 20,
+    width: '100%', // Aumentado em 40% do tamanho original (100 + 40)
+    height: 100, // Aumentado em 40% do tamanho original (100 + 40)
+    marginTop: 50,
   },
   title: {
     fontSize: 32,
-    color: '#FFFFFF',
+    color: '#000000',
     marginBottom: 20,
     fontWeight: 'bold',
   },
   questionContainer: {
-    backgroundColor: '#80d5bf',
+    backgroundColor: '#FFFFFF',
     borderRadius: 8,
     padding: 15,
     marginBottom: 20,
@@ -119,15 +125,27 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  submitButton: {
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginTop: 20,
+  },
+  backButton: {
+    backgroundColor: '#FF5733',
+    borderRadius: 8,
+    padding: 15,
+    width: '48%', // Ajusta a largura do botão de voltar
+    alignItems: 'center',
+  },
+  nextButton: {
     backgroundColor: '#00885E',
     borderRadius: 8,
     padding: 15,
-    width: '100%',
+    width: '48%', // Ajusta a largura do botão de próximo
     alignItems: 'center',
-    marginTop: 20,
   },
-  submitButtonText: {
+  buttonText: {
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: 'bold',

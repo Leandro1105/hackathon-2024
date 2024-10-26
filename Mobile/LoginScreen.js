@@ -5,8 +5,9 @@ const LoginScreen = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
   const handleLogin = () => {
-    if (email === '' && password === '') {
+    if (email === 'juliano' && password === 'senha'){
       onLogin(); // Chama a função passada via props para simular o login
     } else {
       Alert.alert('Erro', 'Credenciais inválidas'); // Mensagem de erro
@@ -17,7 +18,7 @@ const LoginScreen = ({ onLogin }) => {
     <View style={styles.container}>
       {/* Adiciona a logo acima do título */}
       <Image 
-        source={require('./assets/logo.jpg')} 
+        source={require('./assets/logo.png')} 
         style={styles.logo} 
         resizeMode="contain" 
       />
@@ -53,26 +54,25 @@ const LoginScreen = ({ onLogin }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#39BFBF',
+    backgroundColor: '#cdfdd3',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
   },
   logo: {
-    width: 150,     // Largura da imagem
-    height: 150,    // Altura da imagem
-    marginBottom: 20, // Espaçamento abaixo da logo
+    width: 180, // Aumentado em 40% do tamanho original (100 + 40)
+    height: 180, // Aumentado em 40% do tamanho original (100 + 40)
   },
   title: {
     fontSize: 32,
-    color: '#FFFFFF',
+    color: '#000000',
     marginBottom: 20,
     fontWeight: 'bold',
   },
   input: {
     width: '100%',
     height: 50,
-    backgroundColor: '#80d5bf',
+    backgroundColor: '#FFFFFF',
     borderRadius: 8,
     paddingHorizontal: 10,
     color: '#000000',
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 40,
   },
   buttonText: {
     color: '#FFFFFF',
