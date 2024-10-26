@@ -203,6 +203,9 @@ export default function RegisterEvent() { // Renomeado para RegisterEvent
                     w="48%"
                     h="50"
                     mb="24px"
+                    bg={"#cdfdd3"}
+                    color={"black"}
+                    _hover={{ bg: "#cdfdd3" }}
                     onClick={register}
                   >
                     {buttonText}

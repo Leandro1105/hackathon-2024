@@ -24,7 +24,7 @@ export default function Events() {
       event_address: "Parque Central, Cidade X",
       event_date: "2024-11-10T15:00:00Z",
       max_participants: 500,
-      image_url: "https://example.com/imagem_festival_musica.jpg",
+      image_url: require('assets/img/festival.jpg'),
     },
     {
       event_id: 2,
@@ -33,7 +33,7 @@ export default function Events() {
       event_address: "Praça da Liberdade, Cidade Y",
       event_date: "2024-11-20T10:00:00Z",
       max_participants: 200,
-      image_url: "https://example.com/imagem_feira_artesanato.jpg",
+      image_url: require('assets/img/feira.jpg'),
     },
     {
       event_id: 3,
@@ -43,7 +43,7 @@ export default function Events() {
       event_address: "Avenida Principal, Cidade Z",
       event_date: "2024-12-05T08:00:00Z",
       max_participants: 1000,
-      image_url: "https://example.com/imagem_corrida_beneficente.jpg",
+      image_url: require('assets/img/corrida.jpg'),
     },
   ]);
 
@@ -76,23 +76,24 @@ export default function Events() {
             key={event.event_id}
             borderWidth="1px"
             borderRadius="lg"
-            p="4"
+            p="0"
             boxShadow="md"
             bg="white"
             overflow="hidden"
             transition="transform 0.2s"
             _hover={{ transform: "scale(1.03)" }}
+            height="100%"
           >
             <Image
               src={event.image_url}
               alt={event.event_name}
               borderRadius="md"
               mb="3"
-              height="150px"
+              height="55%"
               objectFit="cover"
             />
-            <Box p="2" bg="blue.500" borderRadius="md" mb="3">
-              <Text fontWeight="bold" fontSize="lg" color="white">
+            <Box p="2"  borderRadius="md" mb="3">
+              <Text fontWeight="bold" fontSize="lg" color="black">
                 {event.event_name}
               </Text>
             </Box>
@@ -115,7 +116,7 @@ export default function Events() {
                   icon={<CiBookmarkPlus />}
                   aria-label="Participar"
                   size="sm"
-                  colorScheme="blue"
+                  
                   onClick={() => handleParticipate(event.id)}
                 />
               </Flex>
@@ -127,7 +128,7 @@ export default function Events() {
         icon={<AddIcon />}
         aria-label="Adicionar Novo Evento"
         size="lg"
-        colorScheme="blue"
+        
         position="fixed"
         bottom="24px"
         right="24px"

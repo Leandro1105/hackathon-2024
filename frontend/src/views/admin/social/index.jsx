@@ -56,6 +56,7 @@ export default function Dashboard() {
             </Text>
             <Button
               variant="brand"
+              color={"black"}
               onClick={() => history.push("/admin/groups")}
             >
               Acessar
@@ -66,6 +67,7 @@ export default function Dashboard() {
           <Box
             bg={cardBgColor}
             p="24px"
+            ml={{ base: "0", md: "20px" }}
             borderRadius="15px"
             boxShadow="lg"
             w={{ base: "100%", md: "420px" }}
@@ -79,6 +81,7 @@ export default function Dashboard() {
             </Text>
             <Button
               variant="brand"
+              color={"black"}
               onClick={() => history.push("/admin/events")}
             >
               Acessar

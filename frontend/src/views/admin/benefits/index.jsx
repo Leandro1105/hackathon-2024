@@ -32,11 +32,11 @@ const PartnerCard = ({ name, logo }) => (
 
 export default function UserScore() {
   const history = useHistory();
-  const bgColor = useColorModeValue("white", "gray.800");
+  const bgColor = useColorModeValue("##f4f7fe", "gray.800");
   const cardBgColor = useColorModeValue("gray.100", "gray.600");
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = useColorModeValue("gray.500", "gray.400");
-  const collapseBgColor = useColorModeValue("gray.200", "gray.700");
+  const collapseBgColor = useColorModeValue("white", "gray.700");
 
   // Mock data for score and benefits
   const userScore = 275; // Exemplo de score do usuário
@@ -45,34 +45,36 @@ export default function UserScore() {
       title: "Acesso a eventos exclusivos",
       details: "Participe de eventos como conferências, workshops e meetups com grandes nomes da indústria.",
       partners: [
-        { name: "Empresa A", logo: "https://via.placeholder.com/60" },
-        { name: "Empresa B", logo: "https://via.placeholder.com/60" },
-        { name: "Empresa C", logo: "https://via.placeholder.com/60" },
+        { name: "Allu", logo: require('assets/img/allu_logo.png') },
+        { name: "Unimed", logo: require('assets/img/unimed_logo.png') },
+        { name: "Irroba", logo: require('assets/img/irroba_logo.jpg') },
       ],
     },
     {
       title: "Descontos em parceiros",
       details: "Desfrute de descontos em produtos e serviços de empresas parceiras.",
       partners: [
-        { name: "Loja X", logo: "https://via.placeholder.com/60" },
-        { name: "Serviço Y", logo: "https://via.placeholder.com/60" },
-        { name: "Produto Z", logo: "https://via.placeholder.com/60" },
+        { name: "Allu", logo: require('assets/img/allu_logo.png') },
+        { name: "Unimed", logo: require('assets/img/unimed_logo.png') },
+        { name: "Irroba", logo: require('assets/img/irroba_logo.jpg') },
       ],
     },
     {
       title: "Conteúdo personalizado",
       details: "Receba recomendações de conteúdo baseado em seus interesses e atividades.",
       partners: [
-        { name: "Plataforma 1", logo: "https://via.placeholder.com/60" },
-        { name: "Plataforma 2", logo: "https://via.placeholder.com/60" },
+        { name: "Allu", logo: require('assets/img/allu_logo.png') },
+        { name: "Unimed", logo: require('assets/img/unimed_logo.png') },
+        { name: "Irroba", logo: require('assets/img/irroba_logo.jpg') },
       ],
     },
     {
       title: "Suporte prioritário",
       details: "Obtenha ajuda imediata com uma equipe dedicada ao seu suporte.",
       partners: [
-        { name: "Suporte 24/7", logo: "https://via.placeholder.com/60" },
-        { name: "Linha Direta", logo: "https://via.placeholder.com/60" },
+        { name: "Allu", logo: require('assets/img/allu_logo.png') },
+        { name: "Unimed", logo: require('assets/img/unimed_logo.png') },
+        { name: "Irroba", logo: require('assets/img/irroba_logo.jpg') },
       ],
     },
   ];
@@ -173,16 +175,6 @@ export default function UserScore() {
             </Box>
           ))}
         </Stack>
-
-        {/* Botão de Navegação */}
-        <Button
-          mt="40px"
-          variant="brand"
-          size="lg"
-          onClick={() => history.push("/home")} // Redireciona para a página inicial ou onde você quiser
-        >
-          Voltar para o Início
-        </Button>
       </Flex>
     </Box>
   );

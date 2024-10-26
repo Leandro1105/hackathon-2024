@@ -66,13 +66,13 @@ export default function CommunityGroupList() {
             transition="transform 0.2s"
             _hover={{ transform: "scale(1.03)" }}
           >
-            <Box p="2" bg="blue.500" borderRadius="md">
-              <Text fontWeight="bold" fontSize="lg" color="white">
+            <Box p="2"  borderRadius="md">
+              <Text fontWeight="bold" fontSize="lg" color="black">
                 {group.name}
               </Text>
             </Box>
             <Box p="3">
-              <Text color="gray.600" mb="1">
+              <Text color="gray.800" mb="1">
                 Tema: {group.theme}
               </Text>
               <Text color="gray.500">Localização: {group.location}</Text>
@@ -82,7 +82,7 @@ export default function CommunityGroupList() {
                   icon={<CiBookmarkPlus />}
                   aria-label="Participar"
                   size="sm"
-                  colorScheme="blue"
+                  
                   onClick={() => handleParticipate(group.id)}
                 />
               </Flex>
@@ -94,7 +94,6 @@ export default function CommunityGroupList() {
         icon={<AddIcon />}
         aria-label="Adicionar Novo Grupo"
         size="lg"
-        colorScheme="blue"
         position="fixed"
         bottom="24px"
         right="24px"
