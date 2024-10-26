@@ -32,5 +32,6 @@ CREATE TABLE questions(
     q27 INTEGER,
     q28 INTEGER,
     q29 INTEGER,
+    total FLOAT,
     CONSTRAINT questions_id_pk PRIMARY KEY (id)
 );
