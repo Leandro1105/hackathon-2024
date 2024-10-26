@@ -13,13 +13,13 @@ import { globalStyles } from "./styles";
 export default extendTheme(
   { breakpoints }, // Breakpoints
   globalStyles,
-  badgeStyles, // badge styles
-  buttonStyles, // button styles
-  linkStyles, // link styles
-  progressStyles, // progress styles
-  sliderStyles, // slider styles
-  inputStyles, // input styles
-  textareaStyles, // textarea styles
-  switchStyles, // switch styles
-  CardComponent // card component
+  badgeStyles,
+  buttonStyles,
+  linkStyles,
+  progressStyles,
+  sliderStyles,
+  inputStyles,
+  textareaStyles,
+  switchStyles,
+  CardComponent 
 );

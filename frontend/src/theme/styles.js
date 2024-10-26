@@ -1,39 +1,38 @@
 import { mode } from "@chakra-ui/theme-tools";
-
 export const globalStyles = {
   colors: {
     brand: {
-      100: "#A8E6CE", // verde claro
-      200: "#DCEDC1", // verde médio
-      300: "#FFD54F", // verde oliva
-      400: "#FFB74D", // verde mais escuro
-      500: "#388E3C", // verde padrão
-      600: "#4CAF50", // verde forte
-      700: "#2E7D32", // verde escuro
-      800: "#1B5E20", // verde mais escuro
-      900: "#004D40", // verde muito escuro
+      100: "#038c62",
+      200: "#038c62",
+      300: "#038c62",
+      400: "#038c62",
+      500: "#038c62",
+      600: "#038c62",
+      700: "#038c62",
+      800: "#038c62",
+      900: "#038c62",
     },
     brandScheme: {
-      100: "#A8E6CE", // verde claro
-      200: "#DCEDC1", // verde médio
-      300: "#FFD54F", // verde oliva
-      400: "#FFB74D", // verde mais escuro
-      500: "#388E3C", // verde padrão
-      600: "#4CAF50", // verde forte
-      700: "#2E7D32", // verde escuro
-      800: "#1B5E20", // verde mais escuro
-      900: "#004D40", // verde muito escuro
+      100: "#038c62",
+      200: "#038c62",
+      300: "#038c62",
+      400: "#038c62",
+      500: "#038c62",
+      600: "#038c62",
+      700: "#038c62",
+      800: "#038c62",
+      900: "#038c62",
     },
     brandTabs: {
-      100: "#E0F2F1",
-      200: "#00796B",
-      300: "#00796B",
-      400: "#00796B",
-      500: "#00796B",
-      600: "#004D40",
-      700: "#00332A",
-      800: "#00251A",
-      900: "#001D12",
+      100: "#E9E3FF",
+      200: "#422AFB",
+      300: "#422AFB",
+      400: "#422AFB",
+      500: "#422AFB",
+      600: "#3311DB",
+      700: "#02044A",
+      800: "#190793",
+      900: "#02044A",
     },
     secondaryGray: {
       100: "#E0E5F2",
@@ -65,8 +64,8 @@ export const globalStyles = {
       500: "#FFB547",
     },
     green: {
-      100: "#E6FAF5", // verde claro
-      500: "#01B574", // verde padrão
+      100: "#E6FAF5",
+      500: "#01B574", // mantido como verde
     },
     navy: {
       50: "#d0dcfb",
