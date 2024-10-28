@@ -7,6 +7,7 @@ import {
   Text,
   useBreakpointValue,
   IconButton,
+  Spacer,
 } from "@chakra-ui/react";
 import { AddIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { useHistory } from "react-router-dom";
@@ -24,15 +25,54 @@ export default function ActivityList() {
         return;
       }
 
-      try {
-        const response = await AuthApi.GetActivities(userId); // Método atualizado para buscar atividades
-        const sortedActivities = response.data.sort((a, b) =>
-          new Date(a.event_date) - new Date(b.event_date)
-        );
-        setActivities(sortedActivities);
-      } catch (err) {
-        console.error("Erro ao buscar atividades:", err);
-      }
+      // Mock de dados de atividades
+      const mockActivities = [
+        {
+          event_id: 1,
+          user_id: userId,
+          event_date: "2024-10-25T10:00:00Z",
+          event_type: "Exercício Físico",
+          emotional_impact: 3,
+          mood_before: 5,
+          mood_after: 8,
+          event_description: "Caminhada no parque.",
+        },
+        {
+          event_id: 2,
+          user_id: userId,
+          event_date: "2024-10-24T08:00:00Z",
+          event_type: "Meditação",
+          emotional_impact: 3,
+          mood_before: 4,
+          mood_after: 9,
+          event_description: "Sessão de meditação guiada.",
+        },
+        {
+          event_id: 3,
+          user_id: userId,
+          event_date: "2024-10-23T15:30:00Z",
+          event_type: "Leitura",
+          emotional_impact: 2,
+          mood_before: 6,
+          mood_after: 8,
+          event_description: "Leitura de um livro de autoajuda.",
+        },
+        {
+          event_id: 4,
+          user_id: userId,
+          event_date: "2024-10-22T19:00:00Z",
+          event_type: "Encontro Social",
+          emotional_impact: 3,
+          mood_before: 2,
+          mood_after: 7,
+          event_description: "Jantar com amigos próximos.",
+        },
+      ];
+
+      const sortedActivities = mockActivities.sort((a, b) =>
+        new Date(a.event_date) - new Date(b.event_date)
+      );
+      setActivities(sortedActivities);
     };
 
     fetchActivities();
@@ -41,17 +81,17 @@ export default function ActivityList() {
   const gridTemplateColumns = useBreakpointValue({
     base: "repeat(1, 1fr)",
     sm: "repeat(2, 1fr)",
-    md: "repeat(3, 1fr)",
-    lg: "repeat(4, 1fr)",
+    md: "repeat(2, 1fr)",
+    lg: "repeat(3, 1fr)",
   });
 
   const handleAddActivityClick = () => {
-    history.push("/admin/registeractivity"); // Navega para a tela de cadastro de atividade
+    history.push("/admin/registeractivity");
   };
 
   const handleDeleteActivity = async (eventId) => {
     try {
-      await AuthApi.DeleteActivity(eventId); // Assumindo que este método deleta atividades
+      await AuthApi.DeleteActivity(eventId);
       setActivities((prevActivities) =>
         prevActivities.filter((activity) => activity.event_id !== eventId)
       );
@@ -61,32 +101,34 @@ export default function ActivityList() {
   };
 
   const handleEditActivity = (eventId) => {
-    history.push(`/admin/editactivity/${eventId}`); // Navega para a tela de edição da atividade
+    history.push(`/admin/editactivity/${eventId}`);
   };
 
   return (
-    <Box p="4" position="relative">
+    <Box p="6" position="relative" bg="gray.50" minH="100vh">
       <Grid
         templateColumns={gridTemplateColumns}
-        gap="4"
+        gap="6"
         autoRows="minmax(100px, auto)"
-        mt="15vh"
+        mt="10vh"
       >
         {activities.map((activity) => (
           <GridItem
             key={activity.event_id}
             borderWidth="1px"
-            borderRadius="md"
+            borderRadius="lg"
             p="4"
             boxShadow="md"
             bg="white"
             overflow="hidden"
+            transition="transform 0.2s"
+            _hover={{ transform: "scale(1.03)" }}
           >
             <Flex direction="column" align="start">
-              <Text fontWeight="bold" mb="1">
+              <Text fontWeight="bold" mb="1" color="black">
                 Evento ID: {activity.event_id} - Tipo: {activity.event_type}
               </Text>
-              <Text color="gray.500" mb="3">
+              <Text color="gray.600" mb="3">
                 Descrição: {activity.event_description}
               </Text>
               <Text color="gray.500" mb="1">
@@ -98,21 +140,16 @@ export default function ActivityList() {
               <Text color="gray.500" mb="1">
                 Humor Antes: {activity.mood_before} - Humor Depois: {activity.mood_after}
               </Text>
-              <Flex justify="flex-end" mt="auto">
+              <Spacer mt="4" />
+              <Flex justify="flex-end">
                 <IconButton
                   icon={<EditIcon />}
                   aria-label="Editar Atividade"
                   size="sm"
-                  colorScheme="blue"
+                  bg="#038c62"
+                  color={"white"}
                   mr="2"
                   onClick={() => handleEditActivity(activity.event_id)}
-                />
-                <IconButton
-                  icon={<DeleteIcon />}
-                  aria-label="Deletar Atividade"
-                  size="sm"
-                  colorScheme="red"
-                  onClick={() => handleDeleteActivity(activity.event_id)}
                 />
               </Flex>
             </Flex>
@@ -123,12 +160,14 @@ export default function ActivityList() {
         icon={<AddIcon />}
         aria-label="Adicionar Nova Atividade"
         size="lg"
-        colorScheme="blue"
         position="fixed"
-        bottom="16px"
-        right="16px"
+        bottom="24px"
+        right="24px"
         onClick={handleAddActivityClick}
         zIndex="tooltip"
+        color={"white"}
+        bg={"#038c62"}
+        _hover={{ bg: "#038c62" }}
       />
     </Box>
   );

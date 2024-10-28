@@ -64,8 +64,8 @@ export const globalStyles = {
       500: "#FFB547",
     },
     green: {
-      100: "#E6FAF5",
-      500: "#01B574", // mantido como verde
+      100: "#038c62",
+      500: "#038c62", // mantido como verde
     },
     navy: {
       50: "#d0dcfb",

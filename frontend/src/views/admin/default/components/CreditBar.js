@@ -32,8 +32,8 @@ export default function CreditBar(props) {
           </Flex>
         </Flex>
         <Flex align='center'>
-          <Icon as={RiArrowUpSFill} color='green.500' />
-          <Text color='green.500' fontSize='sm' fontWeight='700'>
+          <Icon as={RiArrowUpSFill} color='#038c62' />
+          <Text color='#038c62' fontSize='sm' fontWeight='700'>
             +5%
           </Text>
         </Flex>

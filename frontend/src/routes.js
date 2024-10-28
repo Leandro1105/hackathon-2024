@@ -26,9 +26,10 @@ import RegisterCommunity from "views/admin/social/communities/index";
 import Events from "views/admin/social/events/event";
 import RegisterEvent from "views/admin/social/events/index";
 import Benefits from "views/admin/benefits/index";
-
 import SignIn from "views/auth/signIn/index.jsx";
 import SignUp from "views/auth/signUp/index.jsx";
+
+const userId = JSON.parse(localStorage.getItem("userId"));
 
 const routes = [
   {

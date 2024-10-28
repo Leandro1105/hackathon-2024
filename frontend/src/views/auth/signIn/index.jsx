@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
+// Chakra imports
 import {
   Box,
   Button,
@@ -16,7 +17,9 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+// Custom components
 import DefaultAuth from "layouts/auth/Default";
+// Assets
 import illustration from "assets/img/auth/auth.png";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";

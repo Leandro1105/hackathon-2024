@@ -97,6 +97,8 @@ export default function QuestionnaireAnswersList() {
                   icon={<EditIcon />}
                   aria-label="Editar Resposta"
                   size="sm"
+                  bg="#038c62" 
+                  color={"white"}
                   onClick={() => handleEditAnswer(answer.id)}
                 />
               </Flex>
@@ -113,6 +115,8 @@ export default function QuestionnaireAnswersList() {
         right="24px"
         onClick={handleAddAnswerClick}
         zIndex="tooltip"
+        color={"white"}
+        bg={"#038c62"}
       />
     </Box>
   );

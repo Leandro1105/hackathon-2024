@@ -1,6 +1,6 @@
 export const barChartDataCreditBar = [
   {
-    name: "Daily Traffic",
+    name: "CreditBar",
     data: [2, 10, 7, 5, 5, 10, 12],
   },
 ];
@@ -78,13 +78,13 @@ export const barChartOptionsCreditBar = {
         [
           {
             offset: 0,
-            color: "#14BF27",
+            color: "#038c62",
             opacity: 1,
           },
           {
             offset: 100,
-            color: "#108D20",
-            opacity: 0.28,
+            color: "#038c62",
+            opacity: 0.18,
           },
         ],
       ],
@@ -103,7 +103,7 @@ export const barChartOptionsCreditBar = {
 
 export const pieChartOptions = {
   labels: ["Muito Feliz", "Moderadamente Feliz", "Não Feliz"],
-  colors: ["#28A745", "#FFC107", "#DC3545"], // Verde, Amarelo, Vermelho
+  colors: ["#038c62", "#FFC107", "#DC3545"], // Verde, Amarelo, Vermelho
   chart: {
     type: 'pie', // Usando gráfico de pizza
     width: "400px", // Aumentando a largura
@@ -126,7 +126,7 @@ export const pieChartOptions = {
     pie: {
       expandOnClick: true, // Expande a fatia ao clicar
       donut: {
-        size: '50%', // Ajusta o tamanho do donut
+        size: '70%', // Ajusta o tamanho do donut
       },
     },
   },
@@ -160,14 +160,14 @@ export const lineChartOptionsResultLine = {
       left: 0,
       blur: 10,
       opacity: 0.1,
-      color: "#14BF27",
+      color: "#038c62",
     },
   },
-  colors: ["#14BF27", "#39B8FF"],
+  colors: ["#038c62", "#038c62"],
   markers: {
     size: 0,
     colors: "white",
-    strokeColors: "#7551FF",
+    strokeColors: "#038c62",
     strokeWidth: 3,
     strokeOpacity: 0.9,
     strokeDashArray: 0,
@@ -226,9 +226,9 @@ export const lineChartOptionsResultLine = {
   grid: {
     show: false,
     column: {
-      color: ["#14BF27", "#39B8FF"],
+      color: ["#038c62", "#39B8FF"],
       opacity: 0.5,
     },
   },
-  color: ["#14BF27", "#39B8FF"],
+  color: ["#038c62", "#39B8FF"],
 };

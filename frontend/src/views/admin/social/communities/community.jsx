@@ -82,7 +82,9 @@ export default function CommunityGroupList() {
                   icon={<CiBookmarkPlus />}
                   aria-label="Participar"
                   size="sm"
-                  
+                  bg={"#038c62"}
+                  _hover={{ bg: "#036c4e" }}
+                  color={"white"}
                   onClick={() => handleParticipate(group.id)}
                 />
               </Flex>
@@ -99,6 +101,9 @@ export default function CommunityGroupList() {
         right="24px"
         onClick={handleAddGroupClick}
         zIndex="tooltip"
+        color={"white"}
+        bg={"#038c62"}
+        _hover={{ bg: "#036c4e" }}
       />
     </Box>
   );

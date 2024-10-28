@@ -142,7 +142,7 @@ export default function RegisterEvent() { // Renomeado para RegisterEvent
                 <Textarea
                   variant="auth"
                   fontSize="sm"
-                  placeholder="Digite a descrição do produto"
+                  placeholder="Digite a descrição do evento"
                   mb="24px"
                   value={eventDescription}
                   onChange={(e) => setEventDescription(e.target.value)}
@@ -203,9 +203,9 @@ export default function RegisterEvent() { // Renomeado para RegisterEvent
                     w="48%"
                     h="50"
                     mb="24px"
-                    bg={"#cdfdd3"}
-                    color={"black"}
-                    _hover={{ bg: "#cdfdd3" }}
+                    color={"white"}
+                    bg={"#038c62"}
+                    _hover={{ bg: "#036c4e" }}
                     onClick={register}
                   >
                     {buttonText}

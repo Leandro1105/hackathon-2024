@@ -1,3 +1,4 @@
+// Chakra Imports
 import {
   Avatar,
   Flex,
@@ -6,6 +7,7 @@ import {
   MenuButton,
   useColorModeValue,
 } from "@chakra-ui/react";
+// Custom Components
 import { SidebarResponsive } from "components/sidebar/Sidebar";
 import PropTypes from "prop-types";
 import React from "react";
@@ -49,8 +51,8 @@ export default function HeaderLinks(props) {
           <Avatar
             _hover={{ cursor: "pointer" }}
             color='white'
-            name='M G'
-            bg='#051B42'
+            name='JU'
+            bg='#038c62'
             size='sm'
             w='40px'
             h='40px'

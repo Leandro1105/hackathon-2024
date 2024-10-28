@@ -1,5 +1,6 @@
 import React from "react";
 
+// chakra imports
 import {
   Box,
   Flex,
@@ -21,6 +22,7 @@ import {
 import { Scrollbars } from "react-custom-scrollbars-2";
 import PropTypes from "prop-types";
 
+// Assets
 import { IoMenuOutline } from "react-icons/io5";
 
 function Sidebar(props) {
@@ -31,9 +33,11 @@ function Sidebar(props) {
     "14px 17px 40px 4px rgba(112, 144, 176, 0.08)",
     "unset"
   );
+  // Chakra Color Mode
   let sidebarBg = useColorModeValue("#cdfdd3", "#cdfdd3");
   let sidebarMargins = "0px";
 
+  // SIDEBAR
   return (
     <Box display={{ sm: "none", xl: "block" }} position='fixed' minH='100%'>
       <Box
@@ -57,9 +61,11 @@ function Sidebar(props) {
   );
 }
 
+// FUNCTIONS
 export function SidebarResponsive(props) {
   let sidebarBackgroundColor = useColorModeValue("white", "navy.800");
   let menuColor = useColorModeValue("gray.400", "white");
+  // // SIDEBAR
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 

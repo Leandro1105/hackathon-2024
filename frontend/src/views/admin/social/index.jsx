@@ -56,7 +56,7 @@ export default function Dashboard() {
             </Text>
             <Button
               variant="brand"
-              color={"black"}
+              color={"white"}
               onClick={() => history.push("/admin/groups")}
             >
               Acessar
@@ -81,7 +81,7 @@ export default function Dashboard() {
             </Text>
             <Button
               variant="brand"
-              color={"black"}
+              color={"white"}
               onClick={() => history.push("/admin/events")}
             >
               Acessar

@@ -1,5 +1,7 @@
+/* eslint-disable */
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+// chakra imports
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../auth-context/auth.context";
 import { Logout } from "../../../routes";

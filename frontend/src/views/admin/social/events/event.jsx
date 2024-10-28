@@ -116,7 +116,9 @@ export default function Events() {
                   icon={<CiBookmarkPlus />}
                   aria-label="Participar"
                   size="sm"
-                  
+                  color={"white"}
+                  bg={"#038c62"}
+                  _hover={{ bg: "#036c4e" }}
                   onClick={() => handleParticipate(event.id)}
                 />
               </Flex>
@@ -128,7 +130,9 @@ export default function Events() {
         icon={<AddIcon />}
         aria-label="Adicionar Novo Evento"
         size="lg"
-        
+        color={"white"}
+        bg={"#038c62"}
+        _hover={{ bg: "#036c4e" }}
         position="fixed"
         bottom="24px"
         right="24px"

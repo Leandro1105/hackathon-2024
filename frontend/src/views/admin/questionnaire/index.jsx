@@ -579,6 +579,9 @@ export default function Questionnaire() {
                   w="48%"
                   onClick={() => setTabIndex((prev) => Math.min(prev + 1, 4))}
                   isDisabled={tabIndex === 4}
+                  color={"white"}
+                  bg={"#038c62"}
+                  _hover={{ bg: "#036c4e" }}
                 >
                   Próximo
                 </Button>

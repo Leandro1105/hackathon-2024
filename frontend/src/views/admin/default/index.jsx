@@ -89,7 +89,7 @@ export default function UserReports() {
               />
             }
             name='Créditos'
-            value='27'
+            value='275'
           />
         </SimpleGrid>
 

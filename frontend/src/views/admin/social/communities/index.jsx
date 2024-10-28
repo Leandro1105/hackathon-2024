@@ -65,7 +65,7 @@ export default function RegisterCommunity() {
   };
 
   const handleClose = () => {
-    history.push("/admin/communities"); // Redirecionando ao fechar
+    history.push("/admin/groups"); // Redirecionando ao fechar
   };
 
   return (
@@ -177,9 +177,9 @@ export default function RegisterCommunity() {
                     w="48%"
                     h="50"
                     mb="24px"
-                    bg={"#cdfdd3"}
-                    color={"black"}
-                    _hover={{ bg: "#cdfdd3" }}
+                    color={"white"}
+                    bg={"#038c62"}
+                    _hover={{ bg: "#036c4e" }}
                     onClick={register}
                   >
                     {buttonText}

@@ -1,6 +1,7 @@
 import axios from "./index";
 
 class AuthApi {
+  //End-points Company
   static Login = (cpf, password) => {
     return axios.get(`user/login`, {
       params: {
@@ -18,6 +19,7 @@ class AuthApi {
     return axios.post(`user`, data, { headers: { Authorization: `${data.token}` } });
   };
   //
+  //End-points People
   static RegisterQuestion = (data) => {
     return axios.post(`question`, data);
   }
