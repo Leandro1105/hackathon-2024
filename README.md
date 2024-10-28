@@ -1,34 +1,58 @@
-﻿# Projeto de Bem-Estar Subjetivo
+# Projeto de Bem-Estar Subjetivo
 
-Este projeto é um sistema completo de gerenciamento de bem-estar subjetivo, permitindo que usuários acompanhem sua felicidade e qualidade de vida. O projeto é dividido em três principais componentes: Backend (Java + Spring Boot), Frontend Web (React) e Mobile (Expo).
+Este projeto oferece um sistema completo de gerenciamento de bem-estar subjetivo, permitindo que os usuários acompanhem sua felicidade e qualidade de vida. A aplicação é organizada em três principais componentes: **Backend** (Java + Spring Boot), **Frontend Web** (React) e **Mobile** (Expo). Com uma interface intuitiva e acessível, o sistema visa facilitar a autopercepção e o acompanhamento de métricas de bem-estar.
 
-## Tecnologias
+# 🧩 Funcionalidades
 
-- **Docker**: Containerização dos serviços.
-- **Backend**: Java + Spring Boot, com uma API RESTful.
-- **Frontend Web**: React para a interface web.
-- **Mobile**: Expo (React Native) para a aplicação móvel.
+- **Dashboard de resultados**: Visualizações personalizáveis dos resultados dos questionários para melhor acompanhamento.
+- **Questionário OHQ**: Aplicação do Oxford Happiness Questionnaire para metrificação da felicidade.
+- **Atividades personalizadas**: Os usuários podem adicionar atividades realizadas para registrar sua jornada rumo ao bem-estar.
+- **Comunidade MyHappy**: Os usuários podem ser membros de comunidades e participar de eventos organizados por outros usuários.
+- **Programa de parcerias**: São oferecidos benefícios em empresas parceiras de acordo com o Score do usuário.
 
-## Estrutura do Projeto
+## 🛠 Tecnologias Utilizadas
+
+- **Docker**: Containerização dos serviços para fácil replicação e escalabilidade.
+- **Backend**: Desenvolvido em Java com Spring Boot, estruturado como uma API RESTful.
+- **Frontend Web**: Interface de usuário responsiva e dinâmica em React.
+- **Mobile**: Aplicação em Expo (React Native) para dispositivos móveis, garantindo uma experiência de uso intuitiva.
+
+## 📂 Estrutura do Projeto
 
 ```plaintext
 ├── backend        # Backend (API) - Java + Spring Boot
 ├── frontend       # Frontend Web - React
 └── mobile         # Aplicação Mobile - Expo (React Native)
+```
 
-## Telas da aplicação Mobile
+## 💻 Telas da Aplicação Web
 
-Nos prints abaixo podemos ver as telas de login, de legenda do questionário e do questionário. Na tela de login temos o campos de login e o campo de senha, ambos são autenticados e devem estar previamente cadastrados para que não retorne 'Credenciais inválidas':
-[![Login-Mob.jpg](https://i.postimg.cc/xdsvWsq5/Login-Mob.jpg)](https://postimg.cc/2qZLW7QL)
-A tela abaixo éa tela após o usuário selecionar no menu a opção para responder ao questionário, onde é aberto a tela de legenda de como funciona os questionário para que ele não fique perdido ao se deparar com os campos numéricos de 1 ao 6:
-[![Legendas-Mob.jpg](https://i.postimg.cc/zfDw2mD3/Legendas-Mob.jpg)](https://postimg.cc/jD9JCF7r)
-O print abaixo é a tela onde o usuário terá de responder ao questionário, sendo reenderizado 4 questões por pagina e com os botões de passar para as próximas perguntas ou para retornar a tela anterior, com os campos bem coloridos para que seja intuitivo as ações necessárias:
-[![Questionario-Mob.jpg](https://i.postimg.cc/8s8s2vht/Questionario-Mob.jpg)](https://postimg.cc/XB8VFp1C)
+A seguir uma breve descrição das telas da aplicação WEB
 
-## Telas da aplicação Mobile
+- **Tela de Login**: Com validação de credenciais
 
-A imagem abaixo demonstra a front-end da aplicação, na sua tela de login, onde tambem é validado se o login e a senha estão cadastradas
 [![Login-Web.jpg](https://i.postimg.cc/jjjNQzv7/Login-Web.jpg)](https://postimg.cc/Js9GRHfr)
-A imagem abaixo demonstra como é a tela de dashboard, tendo várias opções de dashboard diferentes para consultar os resultados dos questionários do usuário  de acordo com o modelo que mais o agrada
+
+- **Tela de Dashboard**: Apresenta diferentes opções de visualização dos resultados dos questionários, permitindo que o usuário escolha o modelo de dashboard mais adequado às suas preferências.
+
 [![Dash-Web.jpg](https://i.postimg.cc/0ynDwtGv/Dash-Web.jpg)](https://postimg.cc/CRZRys6r)
 
+## 📱 Telas da Aplicação Mobile
+
+A seguir, uma breve descrição das telas da aplicação mobile:
+
+- **Tela de Login**: Exige login e senha previamente cadastrados para autenticação. Caso as credenciais sejam inválidas, uma mensagem de erro é exibida.
+
+[![Login-Mob.jpg](https://i.postimg.cc/xdsvWsq5/Login-Mob.jpg)](https://postimg.cc/2qZLW7QL)
+
+- **Legenda do questionário**: Orienta o usuário sobre como responder o questionário, explicando o sistema de pontuação numérica de 1 a 6 para facilitar a compreensão.
+
+[![Legendas-Mob.jpg](https://i.postimg.cc/zfDw2mD3/Legendas-Mob.jpg)](https://postimg.cc/jD9JCF7r)
+
+- **Questionário OHQ**: Interface interativa para responder ao questionário. Exibe quatro perguntas por página, com botões de navegação para avançar ou voltar entre as páginas.
+
+[![Questionario-Mob.jpg](https://i.postimg.cc/8s8s2vht/Questionario-Mob.jpg)](https://postimg.cc/XB8VFp1C)
+
+## 🧑‍💻 Desenvolvedores
+
+Juliano Silva, Leandro Vieira, Leonardo Bonifácio e Miguel Rodrigues
